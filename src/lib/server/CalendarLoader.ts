@@ -1,10 +1,12 @@
 import fs from 'fs';
+import { base } from '$app/paths'
 
 export default async function loader(): Promise<Holiday[] | undefined> {
 
     const holidayArray: Holiday[] = [];
-    
-    const holidaysString = fs.readFileSync('./static/calendar/feiertagskalender.csv', { encoding: 'utf-8' });
+    const res = await fetch(`https://www.wien.gv.at/gogv/l9ogdfeiertagskalender`);
+    //  const holidaysString = fs.readFileSync('./calendar/feiertagskalender.csv', { encoding: 'utf-8' });
+    const holidaysString= await res.text();
     const holidaysStringTrimmed = holidaysString.trim();
     const holidaysStringRows = holidaysStringTrimmed.split('\n');
     holidaysStringRows.forEach((holidayString) => {
