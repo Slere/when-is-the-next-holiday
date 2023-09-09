@@ -1,9 +1,10 @@
 import fs from 'fs';
+
 export default async function loader(): Promise<Holiday[] | undefined> {
 
     const holidayArray: Holiday[] = [];
     
-    const holidaysString = fs.readFileSync('/calendar/feiertagskalender.csv', { encoding: 'utf-8' });
+    const holidaysString = fs.readFileSync('./static/calendar/feiertagskalender.csv', { encoding: 'utf-8' });
     const holidaysStringTrimmed = holidaysString.trim();
     const holidaysStringRows = holidaysStringTrimmed.split('\n');
     holidaysStringRows.forEach((holidayString) => {
