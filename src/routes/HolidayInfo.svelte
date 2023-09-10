@@ -38,9 +38,9 @@
 	});
 </script>
 
-<div class="h-[100vh] w-fit">
+<div class="h-[90vh] w-fit">
 	<div
-		class="h-[80vh] min-h-[300px] w-fit flex items-end px-3 md:px-8 transition-opacity duration-1000 {isInView
+		class="h-[80vh] min-h-fit w-fit flex items-end px-3 md:px-8 transition-opacity duration-1000 {isInView
 			? 'opacity-100'
 			: 'opacity-0'}"
 	>

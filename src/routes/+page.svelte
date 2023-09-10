@@ -1,40 +1,100 @@
 <script lang="ts">
-	
 	import type { PageData } from './$types';
 	import HolidayInfo from './HolidayInfo.svelte';
-	
 
 	export let data: PageData;
-	let holidays:Holiday[] = data.dates;
-	let backgroundAllerseelen = '/holiday_img/nationalfeiertag/nationalfeiertag_02.jpg';
-	let backgroundNationalfeiertag = '/holiday_img/nationalfeiertag/nationalfeiertag_03.jpg';
-	let activeHoliday:string;
-	let isActive = true;
-	
+	let holidays: Holiday[] = data.dates;
+	let backgroundAllerheiligen = '/holiday_img/allerheiligen/bg_01.jpg';
+	let backgroundNationalfeiertag = '/holiday_img/nationalfeiertag/bg_02.jpg';
+	let backgroundMariäEmpfängnis = '/holiday_img/mariä_empfängnis/bg_01.jpg';
+	let backgroundChristtag = '/holiday_img/christtag/bg_01.jpg';
+	let activeHoliday: string;
+	let displayScrollSymbol:boolean = true;
 
-	function handleHolidayEntering(event:any){
+	function handleHolidayEntering(event: any) {
 		activeHoliday = event.detail.id;
+	}
+	function handleScroll(event: any) {
+		
+		displayScrollSymbol = false;
+		document.getElementById('holidayInfo')?.removeEventListener('scroll', handleScroll);
 	}
 </script>
 
 <div
 	style="background-image: url('{backgroundNationalfeiertag}')"
-	class="absolute w-full -z-10 h-[100vh] transition-opacity brightness-75 grayscale-[50%] duration-1000 bg-cover {activeHoliday===holidays[0].dateID
+	class="bg-center absolute w-full -z-10 h-[100vh] transition-opacity brightness-75 grayscale-[50%] duration-1000 bg-cover {activeHoliday ===
+	holidays[0].dateID
 		? 'opacity-100'
 		: 'opacity-0'}"
 />
 <div
-	style="background-image: url('{backgroundAllerseelen}')"
-	class="absolute w-full -z-10 h-[100vh] transition-opacity duration-1000 bg-cover opacity-0 {activeHoliday===holidays[1].dateID
+	style="background-image: url('{backgroundAllerheiligen}')"
+	class="bg-center absolute w-full -z-10 h-[100vh] transition-opacity brightness-75 duration-1000 bg-cover opacity-0 {activeHoliday ===
+	holidays[1].dateID
 		? 'opacity-100'
 		: 'opacity-0'} "
 />
-
-<div class=" h-[100vh] overflow-y-scroll">
+<div
+	style="background-image: url('{backgroundMariäEmpfängnis}')"
+	class="absolute w-full -z-10 h-[100vh] transition-opacity brightness-75 duration-1000 bg-cover opacity-0 {activeHoliday ===
+	holidays[2].dateID
+		? 'opacity-100'
+		: 'opacity-0'} "
+/>
+<div
+	style="background-image: url('{backgroundChristtag}')"
+	class="bg-center absolute w-full -z-10 h-[100vh] transition-opacity brightness-75 duration-1000 bg-cover opacity-0 {activeHoliday ===
+	holidays[3].dateID
+		? 'opacity-100'
+		: 'opacity-0'} "
+/>
+<div
+	class="absolute left-[50%] bottom-1 translate-x-[-50%] mx-auto transition-opacity duration-1000  {!displayScrollSymbol
+		? 'opacity-0'
+		: 'opacity-60'}"
+>
+	<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" class="w-7 h-7 md:h-8 md:w-8 lg:w-10 lg:h-10 animate-[bounce_1.3s_ease-in-out_infinite]"
+		><g transform="rotate(-90 12 12)"
+			><g
+				fill="none"
+				stroke="white"
+				stroke-dasharray="10"
+				stroke-dashoffset="10"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				stroke-width="2"
+				><path d="M2 12L9 5M2 12L9 19"
+					><animate
+						fill="freeze"
+						attributeName="stroke-dashoffset"
+						dur="0.3s"
+						values="10;0"
+					/></path
+				><path d="M8 12L15 5M8 12L15 19"
+					><animate
+						fill="freeze"
+						attributeName="stroke-dashoffset"
+						begin="0.3s"
+						dur="0.3s"
+						values="10;0"
+					/></path
+				><path d="M14 12L21 5M14 12L21 19"
+					><animate
+						fill="freeze"
+						attributeName="stroke-dashoffset"
+						begin="0.6s"
+						dur="0.3s"
+						values="10;0"
+					/></path
+				></g
+			></g
+		></svg
+	>
+</div>
+<div class=" h-[100vh] overflow-y-scroll" id="holidayInfo" on:scroll={handleScroll}>
 	{#each holidays as holiday}
-	<HolidayInfo holiday={holiday} on:entered={handleHolidayEntering}>
-		
-	</HolidayInfo>
+	
+		<HolidayInfo {holiday} on:entered={handleHolidayEntering} />
 	{/each}
-
 </div>
