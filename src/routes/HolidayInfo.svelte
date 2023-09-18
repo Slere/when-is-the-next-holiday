@@ -38,7 +38,7 @@
 	});
 </script>
 
-<div class="h-[90vh] w-fit">
+<div class="h-[88vh] w-fit">
 	<div
 		class="h-[80vh] min-h-fit w-fit flex items-end px-3 md:px-8 transition-opacity duration-1000 {isInView
 			? 'opacity-100'
@@ -68,6 +68,7 @@
 			</h1>
 			<h2 class="text-2xl md:text-3xl lg:text-5xl font-light uppercase">
 				{date.toLocaleString('de-AT', {
+					timeZone: 'Europe/Vienna',
                     day: '2-digit',
                     month: 'long',
                     year: 'numeric'

@@ -2,7 +2,16 @@
 export default async function loader(): Promise<Holiday[] | undefined> {
 
     const holidayArray: Holiday[] = [];
-    const res = await fetch(`https://www.wien.gv.at/gogv/l9ogdfeiertagskalender`);
+    const metaDataRes = await fetch(`https://www.data.gv.at/katalog/api/3/action/package_show?id=3deb9da7-8394-4797-9f32-5ca95281ba5b`);
+    if(metaDataRes.status!==200)
+        return undefined
+    const metaData = await metaDataRes.json();
+    const calendarURL = metaData.result.resources[0].url;
+    if(calendarURL===undefined)
+        return undefined;
+    const res = await fetch(calendarURL);
+    if(res.status!==200)
+        return undefined
     const holidaysString= await res.text();
     const holidaysStringTrimmed = holidaysString.trim();
     const holidaysStringRows = holidaysStringTrimmed.split('\n');

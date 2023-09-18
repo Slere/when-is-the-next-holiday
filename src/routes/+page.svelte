@@ -8,6 +8,14 @@
 	let backgroundNationalfeiertag = '/holiday_img/nationalfeiertag/bg_02.jpg';
 	let backgroundMariäEmpfängnis = '/holiday_img/mariä_empfängnis/bg_01.jpg';
 	let backgroundChristtag = '/holiday_img/christtag/bg_01.jpg';
+	let backgroundStefaniTag = '/holiday_img/stefanitag/bg_01.jpg';
+	let backgroundNeujahrsTag = '/holiday_img/neujahrstag/bg_01.jpg';
+	let backgroundHeiligenDreiKönige = '/holiday_img/heiligen_drei_könige/bg_01.jpg';
+	let backgroundOstermontag = '/holiday_img/ostermontag/bg_01.jpg';
+	let backgroundStaatsfeiertag = '/holiday_img/staatsfeiertag/bg_01.jpg';
+	let backgroundChristiHimmelfahrt = '/holiday_img/christi_himmelfahrt/bg_01.jpg';
+	let backgroundPfingsten = '/holiday_img/pfingsten/bg_01.png';
+	let backgroundFronleichnam = '/holiday_img/fronleichnam/bg_01.jpg';
 	let activeHoliday: string;
 	let displayScrollSymbol:boolean = true;
 
@@ -46,6 +54,62 @@
 	style="background-image: url('{backgroundChristtag}')"
 	class="bg-center absolute w-full -z-10 h-[100vh] transition-opacity brightness-75 duration-1000 bg-cover opacity-0 {activeHoliday ===
 	holidays[3].dateID
+		? 'opacity-100'
+		: 'opacity-0'} "
+/>
+<div
+	style="background-image: url('{backgroundStefaniTag}')"
+	class="bg-center absolute w-full -z-10 h-[100vh] transition-opacity brightness-75 duration-1000 bg-cover opacity-0 {activeHoliday ===
+	holidays[4].dateID
+		? 'opacity-100'
+		: 'opacity-0'} "
+/>
+<div
+	style="background-image: url('{backgroundNeujahrsTag}')"
+	class="bg-center absolute w-full -z-10 h-[100vh] transition-opacity brightness-75 duration-1000 bg-cover opacity-0 {activeHoliday ===
+	holidays[5].dateID
+		? 'opacity-100'
+		: 'opacity-0'} "
+/>
+<div
+	style="background-image: url('{backgroundHeiligenDreiKönige}')"
+	class="bg-center absolute w-full -z-10 h-[100vh] transition-opacity brightness-75 duration-1000 bg-cover opacity-0 {activeHoliday ===
+	holidays[6].dateID
+		? 'opacity-100'
+		: 'opacity-0'} "
+/>
+<div
+	style="background-image: url('{backgroundOstermontag}')"
+	class="bg-center absolute w-full -z-10 h-[100vh] transition-opacity brightness-75 duration-1000 bg-cover opacity-0 {activeHoliday ===
+	holidays[7].dateID
+		? 'opacity-100'
+		: 'opacity-0'} "
+/>
+<div
+	style="background-image: url('{backgroundStaatsfeiertag}')"
+	class="bg-center absolute w-full -z-10 h-[100vh] transition-opacity brightness-75 duration-1000 bg-cover opacity-0 {activeHoliday ===
+	holidays[8].dateID
+		? 'opacity-100'
+		: 'opacity-0'} "
+/>
+<div
+	style="background-image: url('{backgroundChristiHimmelfahrt}')"
+	class="bg-top absolute w-full -z-10 h-[100vh] transition-opacity brightness-75 duration-1000 bg-cover opacity-0 {activeHoliday ===
+	holidays[9].dateID
+		? 'opacity-100'
+		: 'opacity-0'} "
+/>
+<div
+	style="background-image: url('{backgroundPfingsten}')"
+	class="bg-center absolute w-full -z-10 h-[100vh] transition-opacity brightness-75 duration-1000 bg-cover opacity-0 {activeHoliday ===
+	holidays[10].dateID
+		? 'opacity-100'
+		: 'opacity-0'} "
+/>
+<div
+	style="background-image: url('{backgroundFronleichnam}')"
+	class="bg-center absolute w-full -z-10 h-[100vh] transition-opacity brightness-75 duration-1000 bg-cover opacity-0 {activeHoliday ===
+	holidays[11].dateID
 		? 'opacity-100'
 		: 'opacity-0'} "
 />
