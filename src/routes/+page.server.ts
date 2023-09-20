@@ -15,7 +15,7 @@ holidayArrayFiltered.sort((a:Holiday,b:Holiday)=>{return a.date.getTime()-b.date
 let nextHolidayIndex = holidayArrayFiltered.findIndex((holiday:Holiday)=>holiday.date.getTime()>Date.now());
 // const nextDates:Holiday[] = [holidayArrayFiltered[nextHolidayIndex],holidayArrayFiltered[nextHolidayIndex+1],holidayArrayFiltered[nextHolidayIndex+2],holidayArrayFiltered[nextHolidayIndex+3]];
 const nextDates:Holiday[] = [];
-for( let i=nextHolidayIndex;i<nextHolidayIndex+12;i++){
+for( let i=nextHolidayIndex;i<nextHolidayIndex+13;i++){
     nextDates.push(holidayArrayFiltered[i]);
 }
    return {
